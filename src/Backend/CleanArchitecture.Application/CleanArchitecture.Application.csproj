@@ -10,8 +10,4 @@
     <ProjectReference Include="..\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ProductServices\" />
-  </ItemGroup>
-
 </Project>

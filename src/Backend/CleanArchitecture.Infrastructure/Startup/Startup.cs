@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Domain.Interfaces;
+﻿using CleanArchitecture.Application.ProductServices;
+using CleanArchitecture.Domain.Interfaces;
 using CleanArchitecture.Infrastructure.EF;
 using CleanArchitecture.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -27,7 +28,8 @@ namespace CleanArchitecture.Infrastructure.Startup
         /// <param name="configuration"></param>
         public static void ConfigureContext(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<CleanArchitectureContext>(options => options.UseSqlServer(configuration.GetConnectionString("ArchitectureContext")));
+            services.AddDbContext<CleanArchitectureContext>(options => 
+            options.UseSqlServer(configuration.GetConnectionString("ArchitectureContext")));
         }
 
         /// <summary>
@@ -37,6 +39,7 @@ namespace CleanArchitecture.Infrastructure.Startup
         public static void ConfigureDependencyInjection(IServiceCollection services)
         {
             services.AddScoped<IRepository, SQLServerRepository>();
+            services.AddScoped<ProductServices>();
         }
 
     }

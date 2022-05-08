@@ -9,5 +9,7 @@ namespace CleanArchitecture.Domain.Interfaces
     public interface IRepository
     {
         public Task Save<T>(T obj) where T : Entity;
+
+        public Task Commit();
     }
 }
